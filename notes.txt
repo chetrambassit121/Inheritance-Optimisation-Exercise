@@ -1,0 +1,42 @@
+Django ORM -- OPTIMIZATION
+Extensible Data Modeling
+
+TYPES OF inheritance
+
+1. Concrete table inheritence (concrete classes)
+advantages:                     disadvantages:
+- self sufficient               - feild definition duplicated
+- integration                   - multiple SELECT with UNION (sql lanuage)
+- fast single queries
+
+EXAMPLE:
+cupboards          books
+----------        ----------
+category FK       category FK
+title             title
+price             price
+image             image
+size              size
+height            height
+..........................................
+
+
+django model inheritance
+
+2. multi table inheritance
+3. abstract models 
+4. polymorphism
+
+product(models.Model)                    cupboard(product)     # inherits feilds from product plus its own ID and unique feild height
+---------------------        ----->      ------------------
+category FK                               ID
+title                                     height
+price             
+image             
+size                                     book(product)         # inherits feilds from product plus its own ID and unique feild height
+height                       ----->     --------------------
+                                         ID
+                                         height
+
+
+

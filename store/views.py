@@ -2,10 +2,12 @@ from django.shortcuts import get_object_or_404, render
 
 from .models import Category, Product, Book, Cupboard
 
-
+# 
 def product_all(request):
 
     products = Product.objects.all()
+
+    ## different coding to catch queries. 
 
     # cupboard = Cupboard.objects.all()
     # book = Book.objects.all()

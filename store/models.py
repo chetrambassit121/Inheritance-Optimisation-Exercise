@@ -3,7 +3,7 @@ from django.db import models
 from django.urls import reverse
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes.fields import GenericForeignKey
-
+from polymorphic.models import PolymorphicModel
 
 class Category(models.Model):
     name = models.CharField(max_length=255, db_index=True)
@@ -20,7 +20,7 @@ class Category(models.Model):
 
 
 
-class Product(models.Model):
+class Product(PolymorphicModel):
     title = models.CharField(max_length=255)
     description = models.TextField(blank=True)
     image = models.ImageField(upload_to='images/', default='images/default.png')
